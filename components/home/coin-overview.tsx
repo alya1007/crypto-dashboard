@@ -3,9 +3,15 @@ import { fetcher } from "@/lib/coingecko.actions";
 import Image from "next/image";
 
 const CoinOverview = async () => {
-	const coin = await fetcher<CoinDetailsData>("coins/bitcoin", {
-		dex_pair_format: "symbol",
-	});
+	let coin;
+	try {
+		coin = await fetcher<CoinDetailsData>("coins/bitcoin", {
+			dex_pair_format: "symbol",
+		});
+	} catch (err) {
+		console.log("Error fetching coin details:", err);
+		return <div id="coin-overview">Failed to load coin overview.</div>;
+	}
 	return (
 		<div id="coin-overview">
 			<div className="header pt-2">
