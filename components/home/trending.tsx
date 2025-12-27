@@ -68,11 +68,17 @@ const columns: DataTableColumn<TrendingCoin>[] = [
 	},
 ];
 const Trending = async () => {
-	const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-		"search/trending",
-		undefined,
-		300
-	);
+	let trendingCoins;
+	try {
+		trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
+			"search/trending",
+			undefined,
+			300
+		);
+	} catch (err) {
+		console.log("Error fetching trending coins:", err);
+		return <div id="trending-coins">Failed to load trending coins.</div>;
+	}
 	return (
 		<div id="trending-coins">
 			<p>Trending Coins</p>
