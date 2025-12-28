@@ -276,7 +276,7 @@
 	}
 
 	#categories {
-		@apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
+		@apply pt-8 mt-5 bg-dark-500 rounded-xl md:col-span-3 overflow-hidden;
 
 		h4 {
 			@apply text-xl md:text-2xl font-semibold mb-2 pl-5;
@@ -812,7 +812,7 @@
 	}
 
 	#coin-overview {
-		@apply w-full h-full xl:col-span-2 px-2 bg-dark-500 rounded-xl;
+		@apply w-full h-full col-span-2 px-2 bg-dark-500 rounded-xl;
 
 		.header {
 			@apply flex-1 mb-2 flex gap-2 md:gap-3;
