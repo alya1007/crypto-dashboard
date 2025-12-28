@@ -1,3 +1,4 @@
+import Categories from "@/components/home/categories";
 import CoinOverview from "@/components/home/coin-overview";
 import Trending from "@/components/home/trending";
 import { Suspense } from "react";
@@ -80,9 +81,12 @@ const Page = async () => {
 				<Suspense fallback={<div>Loading...</div>}>
 					<Trending />
 				</Suspense>
-			</section>
-			<section className="w-full mt-7 space-y-4">
-				<p>Categories</p>
+				{
+					// TODO: add skeletons as fallbacks
+				}
+				<Suspense fallback={<div>Loading...</div>}>
+					<Categories />
+				</Suspense>
 			</section>
 		</main>
 	);

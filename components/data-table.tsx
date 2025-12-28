@@ -41,7 +41,6 @@ const DataTable = <T,>({
 }: DataTableProps<T>) => {
 	return (
 		<Table className={cn("custom-scrollbar", tableClassname)}>
-			<TableCaption>A list of your recent invoices.</TableCaption>
 			<TableHeader className={headerClassname}>
 				<TableRow className={cn("hover:bg-transparent!", headerRowClassname)}>
 					{columns.map((column, colIndex) => (
@@ -49,7 +48,8 @@ const DataTable = <T,>({
 							key={colIndex}
 							className={cn(
 								"bg-purple-100 py-4 first:pl:5 last:pr-5",
-								headerCellClassname
+								headerCellClassname,
+								column.headClassname
 							)}
 						>
 							{column.header}
@@ -69,7 +69,11 @@ const DataTable = <T,>({
 						{columns.map((column, colIndex) => (
 							<TableCell
 								key={colIndex}
-								className={cn("py-4 first:pl-5 last:pr-5", bodyCellClassname)}
+								className={cn(
+									"py-4 first:pl-5 last:pr-5",
+									column.cellClassname,
+									bodyCellClassname
+								)}
 							>
 								{column.cell(row, rowIndex)}
 							</TableCell>
