@@ -25,7 +25,7 @@ const CoinOverview = async () => {
 	}
 	return (
 		<div id="coin-overview">
-			<CandlestickChart>
+			<CandlestickChart coinId="bitcoin" data={coinOHLCData} height={400}>
 				<div className="header pt-2">
 					<Image
 						src={coin.image.large}
